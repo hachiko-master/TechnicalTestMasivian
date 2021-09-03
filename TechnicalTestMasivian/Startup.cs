@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,7 @@ namespace TechnicalTestMasivian
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.Configure<StoreOptions>(Configuration.GetSection("ConfigGlobalValues"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
