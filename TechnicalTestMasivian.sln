@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnicalTestMasivian", "TechnicalTestMasivian\TechnicalTestMasivian.csproj", "{C6FBBC96-75D3-4DF3-BF25-6A898029619E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnicalTestMasivianUI", "TechnicalTestMasivianUI\TechnicalTestMasivianUI.csproj", "{DF1F1524-4853-4A9E-9112-4B4993D9BCDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechnicalTestMasivian", "TechnicalTestMasivian\TechnicalTestMasivian.csproj", "{C6FBBC96-75D3-4DF3-BF25-6A898029619E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{C6FBBC96-75D3-4DF3-BF25-6A898029619E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6FBBC96-75D3-4DF3-BF25-6A898029619E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6FBBC96-75D3-4DF3-BF25-6A898029619E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF1F1524-4853-4A9E-9112-4B4993D9BCDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF1F1524-4853-4A9E-9112-4B4993D9BCDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF1F1524-4853-4A9E-9112-4B4993D9BCDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF1F1524-4853-4A9E-9112-4B4993D9BCDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

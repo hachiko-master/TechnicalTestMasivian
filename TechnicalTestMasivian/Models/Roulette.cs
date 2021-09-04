@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TechnicalTestMasivian.Entities
+namespace TechnicalTestMasivian.Models
 {
     public class Roulette
     {
