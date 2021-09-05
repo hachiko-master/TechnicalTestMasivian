@@ -1,7 +1,7 @@
 # TechnicalTestMasivian - Roulette
-This is a Technical Test for Masivian Company, It was developed with strongly typed language C # .NET, using WebAPI with NET Core 3, SQL Server Database with direct connection (without ORM's) with connection string in JSON. The project complies with the clean clode rules.
+This is a Technical Test for Masivian Company, It was developed with strongly typed language C # .NET, using WebAPI with NET Core 3, SQL Server Database with direct connection (without ORM's) with connection string in JSON. The project complies with the Clean Code rules.
 
-Esta es la prueba técnica para la empresa Masivian, fue desarrollado con lenguaje fuertemente tipado C # .NET, usando WebAPI con NET Core 3, Base de Datos SQL Server con conexión directa (sin ORM's) con cadena de conexión en JSON. El proyecto cumple con las reglas del clean clode
+Esta es la prueba técnica para la empresa Masivian, fue desarrollado con lenguaje fuertemente tipado C # .NET, usando WebAPI con NET Core 3, Base de Datos SQL Server con conexión directa (sin ORM's) con cadena de conexión en JSON. El proyecto cumple con las reglas del Clean Code.
 
 A continuación se listan los requisitos solicitados.
 The requested requirements are listed below:
