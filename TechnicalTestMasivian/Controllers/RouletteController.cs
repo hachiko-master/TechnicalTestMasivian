@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using TechnicalTestMasivian.Data;
 using TechnicalTestMasivian.DTO;
@@ -47,7 +48,7 @@ namespace TechnicalTestMasivian.Controllers
 
         [Route("bet/{rouletteId}")]
         [HttpPost]
-        public IActionResult BetRoulette([FromHeader(Name = "userId")] int userId, [FromRoute(Name = "rouletteId")] int rouletteId, [FromBody] BetRequest request)
+        public IActionResult CreateBetRoulette([FromHeader(Name = "userId")] int userId, [FromRoute(Name = "rouletteId")] int rouletteId, [FromBody] BetRequest request)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
@@ -65,6 +66,46 @@ namespace TechnicalTestMasivian.Controllers
             {
                 return StatusCode(500);
             }
+        }
+
+        [Route("close/{rouletteId}")]
+        [HttpPut]
+        public IActionResult CloseRoulette([FromRoute(Name = "rouletteId")] int rouletteId)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+            try
+            {
+                List<Winners> listWinners = db.CloseRoulette(rouletteId);
+                listWinners = CalculateWinMoney(listWinners);
+
+                return Ok(listWinners);
+            }
+            catch (System.Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+
+        public List<Winners> CalculateWinMoney(List<Winners> listWinners)
+        {
+            Random random = new Random();
+            List<Winners> resultListWinners = new List<Winners>();
+            int numRandomRoulette = random.Next(0, 37);
+            double winMoney = 0;
+            foreach (Winners item in listWinners)
+            {
+                if (item.BetOption >= 0 && item.BetOption <= 36)
+                    winMoney = item.BetMoney * 5;
+                else if(item.BetOption == -1 && numRandomRoulette%2==0)
+                    winMoney = item.BetMoney * 1.8;
+                else if (item.BetOption == -2 && numRandomRoulette % 2 != 0)
+                    winMoney = item.BetMoney * 1.8;
+                item.WinMoney = winMoney;
+                resultListWinners.Add(item);
+            }
+
+            return resultListWinners;
         }
     }
 }

@@ -6,6 +6,6 @@ namespace TechnicalTestMasivian.Models
     {
         public int Id { get; set; }
         public bool Status { get; set; }
-        public DateTime CreateDateTime { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }

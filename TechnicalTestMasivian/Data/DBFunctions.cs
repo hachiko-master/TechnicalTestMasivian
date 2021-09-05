@@ -25,7 +25,7 @@ namespace TechnicalTestMasivian.Data
                     roulette = new Roulette();
                     roulette.Id = Convert.ToInt32(sqlDataReader[0]);
                     roulette.Status = Convert.ToBoolean(sqlDataReader[1]);
-                    roulette.CreateDateTime = Convert.ToDateTime(sqlDataReader[2].ToString());
+                    roulette.CreatedAt = Convert.ToDateTime(sqlDataReader[2].ToString());
                     listRoulettes.Add(roulette);
                 }
                 sqlConnection.Close();
@@ -123,6 +123,41 @@ namespace TechnicalTestMasivian.Data
                 sqlConnection.Close();
 
                 return result;
+            }
+            catch (Exception e)
+            {
+                sqlConnection.Close();
+                throw;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+        public List<Winners> CloseRoulette(int rouletteId)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SP_CLOSE_ROULETTE", sqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@rouletteId", rouletteId);
+                sqlConnection.Open();
+                SqlDataReader sqlDataReader = cmd.ExecuteReader();
+                List<Winners> listWinners = new List<Winners>();
+                Winners winners;
+                while (sqlDataReader.Read())
+                {
+                    winners = new Winners();
+                    winners.UserId = Convert.ToInt32(sqlDataReader[0]);
+                    winners.BetRoulette = Convert.ToInt32(sqlDataReader[1]);
+                    winners.BetMoney = Convert.ToDouble(sqlDataReader[2]);
+                    winners.BetOption = Convert.ToInt32(sqlDataReader[3]);
+                    listWinners.Add(winners);
+                }
+                sqlConnection.Close();
+
+                return listWinners;
             }
             catch (Exception e)
             {
